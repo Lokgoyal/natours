@@ -9,8 +9,8 @@ const router = express.Router();
 
 
 // Mount routes
-router.get('/', tourController.getAllTours);
-
+router.route('/').post(tourController.createTour).get(tourController.getAllTours);
+router.route('/:id').get(tourController.getTour).patch(tourController.updateTour).delete(tourController.deleteTour);
 
 
 // Export router

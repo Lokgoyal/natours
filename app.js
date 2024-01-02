@@ -1,4 +1,5 @@
 const express = require('express');
+const errorController = require('./controllers/errorController');
 
 
 
@@ -9,6 +10,11 @@ const app = express();
 
 // Mount middlewares (General)
 app.use(express.json());
+
+
+// Error-specific
+app.use(errorController.missingRoutesHandler);
+app.use(errorController.globalErrorHandler);
 
 
 
